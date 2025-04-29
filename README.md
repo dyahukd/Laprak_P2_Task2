@@ -359,8 +359,8 @@ int main() {
 #include <sys/stat.h>    
 #include <time.h>
 ```     
-`<stdio.h>`: Menyediakan fungsi untuk operasi input/output, seperti `printf()`, `fopen()`, `fscanf()`, dan lain-lain.
-`<stdlib.h>`: Menyediakan fungsi untuk pengelolaan memori dinamis dan manipulasi angka, seperti `malloc()`, `free()`, dan `exit()`.
+- `<stdio.h>`: Menyediakan fungsi untuk operasi input/output, seperti `printf()`, - `fopen()`, `fscanf()`, dan lain-lain.
+- `<stdlib.h>`: Menyediakan fungsi untuk pengelolaan memori dinamis dan manipulasi angka, seperti `malloc()`, `free()`, dan `exit()`.
 `<string.h>`: Digunakan untuk manipulasi string, seperti `strcpy()`, `strlen()`, `strcmp()`.
 `<unistd.h>`: Menyediakan fungsi untuk pemrograman POSIX seperti `fork()`, `execvp()`, dan `getpid()`.
 `<pthread.h>`: Menyediakan fungsi untuk thread dalam C, seperti `pthread_create()`, `pthread_join()`, `pthread_mutex_lock()`, dll.
