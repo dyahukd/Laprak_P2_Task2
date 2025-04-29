@@ -797,6 +797,13 @@ int main() {
 `return 0`: Selesai menjalankan program.
 
 ## **Hasil Program**
+1. Menampilkan pilihan menu pada terminal.
+2. Untuk pilihan 1, mendownload file zip, kemudian diekstrak, lalu file zip sebelumnya dihapus, tersisa netflixData.csv.
+3. Untuk pilihan 2, mensortir film berdasarkan judul dan tahun, tercipta dua buah folder yakni `judul` dan `tahun`, juga `log.txt`.
+4. Untuk pilihan 3, tercipta file laporan bernama `report_30042025.txt` sesuai hari dimana file dijalankan.
+5. Untuk pilihan 0, keluar dari program.
+
+## **Bukti Hasil Program**
 #### **Tampilan Menu**
 ![Image](https://github.com/user-attachments/assets/24631078-8511-4450-bcbf-f03bb2e694c0)
 #### **Hasil Pilihan 1**
