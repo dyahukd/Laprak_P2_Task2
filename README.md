@@ -811,15 +811,20 @@ int main() {
 ![Image](https://github.com/user-attachments/assets/06226186-69c2-4ddf-8ac7-c387880cab1d)
 #### **Isi File `#.txt`**
 ![Image](https://github.com/user-attachments/assets/7caa2886-38f9-43cb-b890-cbddc7b0e964)
-#### **Isi `log.txt`**
+#### **File Dalam Folder Tahun**
 ![Image](https://github.com/user-attachments/assets/856fad89-fed6-4e27-8fd5-6b6da0bb8cd7)
-#### **Hasil Pilihan 3**
+#### **Isi File `1942.txt`**
 ![Image](https://github.com/user-attachments/assets/0a58fad8-110f-477b-b935-35a2d5b23cfb)
+#### **Isi File `2021.txt`**
 ![Image](https://github.com/user-attachments/assets/6cab5a74-9c3b-4156-aebb-d6eb2d5cd625)
+#### **Isi File `log.txt`**
 ![Image](https://github.com/user-attachments/assets/596a3002-75f0-41f8-91c8-73590f090096)
+#### **Hasil Pilihan 3**
 ![Image](https://github.com/user-attachments/assets/476b1e95-1aad-445c-8e4a-4fd8fa4e37f6)
 ![Image](https://github.com/user-attachments/assets/0681a0ce-43cf-40e0-b982-7c9a8c92a7d3)
+#### **Isi File `report_30042025.txt`
 ![Image](https://github.com/user-attachments/assets/29b73dc4-3ab4-449e-9ded-e58581a8d889)
+#### **Hasil Pilihan 0`
 ![Image](https://github.com/user-attachments/assets/783c60cd-8bff-4f18-88f1-049ae23d575d)
 
 
