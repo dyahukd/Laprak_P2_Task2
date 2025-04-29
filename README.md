@@ -824,9 +824,12 @@ int main() {
 ![Image](https://github.com/user-attachments/assets/0681a0ce-43cf-40e0-b982-7c9a8c92a7d3)
 #### **Isi File `report_30042025.txt`
 ![Image](https://github.com/user-attachments/assets/29b73dc4-3ab4-449e-9ded-e58581a8d889)
-#### **Hasil Pilihan 0`
+#### **Hasil Pilihan 0**
 ![Image](https://github.com/user-attachments/assets/783c60cd-8bff-4f18-88f1-049ae23d575d)
 
+## **Kendala**
+Pada pilihan 2, isi file `#.txt` tidak lengkap, ada beberapa yang belum masuk ke file tersebut. Sudah dicoba perbaiki, namun belum menemukan jawaban yang tepat.
+File netflixData.csv ketika dibuka di MsExcel, pada baris 3962, judul tidak diawali dengan tanda petik ("), namun, di jika dibuka di Linux, judul diawali dengan tanda petik (").
 
 
 
