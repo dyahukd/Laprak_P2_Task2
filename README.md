@@ -584,6 +584,7 @@ void *kelompokjudul(void *arg) {
     return NULL;
 }
 ```
+- `*kelompokjudul(void *arg)`: Fungsi untuk mensortir film berdasarkan judul.
 - `mkdir("judul", 0777)`: Fungsi ini membuat direktori baru bernama `judul` dengan permission `0777`, yang berarti direktori dapat dibaca, ditulis, dan dieksekusi oleh siapa saja. Direktori ini akan digunakan untuk menyimpan file teks berdasarkan huruf pertama judul film.
 - `for (int i = 0; i < jumlahfilm; i++)`: Loop ini akan iterasi untuk setiap film dalam array `daftarfilm`. Artinya, loop ini akan mengecek semua film yang ada di dalam array.
 - `char awal = '#'`: Variabel awal digunakan untuk menyimpan karakter pertama dari judul film yang akan digunakan untuk mengelompokkan film. Jika tidak ada karakter yang valid, maka `#` akan digunakan sebagai pengganti (sebagai grup "lain-lain").
@@ -622,6 +623,7 @@ void *kelompoktahun(void *arg) {
     return NULL;
 }
 ```
+- `*kelompoktahun(void *arg)`: Fungsi untuk mensortir film berdasarkan tahun.
 - `mkdir("tahun", 0777)`: Membuat direktori baru bernama `tahun` dengan permission `0777`, di mana setiap file yang akan dikelompokkan berdasarkan tahun rilis film akan disimpan.
 - `for (int i = 0; i < jumlahfilm; i++)`: Loop ini berjalan untuk setiap `film` dalam array `daftarfilm`.
 - `int tahun = daftarfilm[i].tahun`: Mendapatkan tahun rilis dari film saat ini.
@@ -716,9 +718,85 @@ void buat_laporan() {
 - `printf("Laporan disimpan di %s\n", nama_file)`: Tampilkan lokasi (nama) file laporan ke terminal.
 
 ```
+void menu() {
+    int pilihan;
+    do {
+        printf("\n===== MENU =====\n");
+        printf("1. One Click: Download, Ekstrak, dan Hapus File\n");
+        printf("2. Sorting Film: Kelompokkan berdasarkan Judul dan Tahun\n");
+        printf("3. Report Film: Buat Laporan Statistik\n");
+        printf("0. Keluar\n");
+        printf("Pilih: ");
+        scanf("%d", &pilihan);
+        getchar();
+
+        switch (pilihan) {
+            case 1:
+                download_zip();
+                break;
+            case 2: {
+                baca_csv();
+                pthread_t t1, t2;
+                pthread_create(&t1, NULL, kelompokjudul, NULL);
+                pthread_create(&t2, NULL, kelompoktahun, NULL);
+                pthread_join(t1, NULL);
+                pthread_join(t2, NULL);
+                printf("Pengelompokan selesai!\n");
+                break;
+            }
+            case 3: {
+                pthread_t t;
+                pthread_create(&t, NULL, proses_statistik, NULL);
+                pthread_join(t, NULL);
+                buat_laporan();
+                break;
+            }
+            case 0:
+                printf("Keluar...\n");
+                break;
+            default:
+                printf("Pilihan tidak valid!\n");
+        }
+    } while (pilihan != 0);
+}
+```
+- `void menu()`: Fungsi utama untuk menampilkan menu interaktif ke pengguna.
+- `int pilihan`: Variabel untuk menyimpan pilihan menu dari pengguna.
+- `do`: Mulai perulangan menu, akan terus berjalan sampai pengguna memilih keluar
+- ```
+        printf("\n===== MENU =====\n");
+        printf("1. One Click: Download, Ekstrak, dan Hapus File\n");
+        printf("2. Sorting Film: Kelompokkan berdasarkan Judul dan Tahun\n");
+        printf("3. Report Film: Buat Laporan Statistik\n");
+        printf("0. Keluar\n");
+  ```
+Tampilkan daftar pilihan menu ke layar.
+- `printf("Pilih: "); scanf("%d", &pilihan); getchar()`: Ambil input angka dari pengguna dan simpan di `pilihan`. Gunakan `getchar()` untuk menyerap karakter newline.
+- `switch (pilihan)`: Periksa nilai `pilihan` menggunakan `switch`.
+- `case 1: { download_zip(); break; }`: Jika pilih 1, jalankan fungsi `download_zip()` untuk unduh, ekstrak, dan hapus file ZIP.
+- `case 2: { baca_csv();`: Jika pilih 2, baca data film dari file CSV.
+- `pthread_t t1, t2`: Deklarasi dua thread.
+- `pthread_create(&t1, NULL, kelompokjudul, NULL); pthread_create(&t2, NULL, kelompoktahun, NULL);`: Jalankan fungsi `kelompokjudul()` dan `kelompoktahun()` secara bersamaan menggunakan thread.
+- `pthread_join(t1, NULL); pthread_join(t2, NULL);`: Tunggu sampai kedua thread selesai.
+- `printf("Pengelompokan selesai!\n")`: Tampilkan pesan bahwa pengelompokan selesai.
+- `case 3: { pthread_t t;`: Jika pilih 3, buat satu thread.
+- `pthread_create(&t, NULL, proses_statistik, NULL); pthread_join(t, NULL);`: Jalankan fungsi `proses_statistik()` di thread, lalu tunggu sampai selesai.
+- `buat_laporan()`: Setelah statistik selesai, buat file laporan.
+- `case 0: { printf("Keluar...\n")`: Jika pilih 0, tampilkan pesan keluar dan hentikan loop.
+- `default: { printf("Pilihan tidak valid!\n"); }`: Jika input tidak sesuai dengan pilihan yang tersedia, maka cetak bahwa pilihan tidak valid.
+- `while (pilihan != 0)`: Ulangi menu selama pengguna belum memilih 0.
 
 ```
+int main() {
+    menu();
+    return 0;1
+}
+```
+`int main()`: Fungsi utama program.
+`menu()`: Panggil fungsi `menu()`.
+`return 0`: Selesai menjalankan program.
 
+## **Hasil Program**
 
 
 
