@@ -828,8 +828,8 @@ int main() {
 ![Image](https://github.com/user-attachments/assets/783c60cd-8bff-4f18-88f1-049ae23d575d)
 
 ## **Kendala**
-Pada pilihan 2, isi file `#.txt` tidak lengkap, ada beberapa yang belum masuk ke file tersebut. Sudah dicoba perbaiki, namun belum menemukan jawaban yang tepat.
-File netflixData.csv ketika dibuka di MsExcel, pada baris 3962, judul tidak diawali dengan tanda petik ("), namun, di jika dibuka di Linux, judul diawali dengan tanda petik (").
+- Pada pilihan 2, isi file `#.txt` tidak lengkap, ada beberapa yang belum masuk ke file tersebut. Sudah dicoba perbaiki, namun belum menemukan jawaban yang tepat.
+- File netflixData.csv ketika dibuka di MsExcel, pada baris 3962, judul tidak diawali dengan tanda petik ("), namun, di jika dibuka di Linux, judul diawali dengan tanda petik (").
 
 
 
