@@ -7,7 +7,7 @@ Anthony sedang asyik menonton film favoritnya dari Netflix, namun seiring berjal
 
 Berikut adalah serangkaian tugas yang Anthony ingin capai untuk membuat pengalaman menonton filmnya jadi lebih menyenangkan:
 
-**a. One Click and Done!**
+#### **a. One Click and Done!**
 
 Pernahkah kamu merasa malas untuk mengelola file ZIP yang penuh dengan data film? Anthony merasa hal yang sama, jadi dia ingin semuanya serba instan dengan hanya satu perintah. Dengan satu perintah saja, Anthony bisa:
 
@@ -17,7 +17,7 @@ Pernahkah kamu merasa malas untuk mengelola file ZIP yang penuh dengan data film
 
 Buatlah skrip yang akan mengotomatiskan proses ini sehingga Anthony hanya perlu menjalankan satu perintah untuk mengunduh, mengekstrak, dan menghapus file ZIP.
 
-**b. Sorting Like a Pro**
+#### **b. Sorting Like a Pro**
 
 Koleksi film Anthony semakin banyak dan dia mulai bingung mencari cara yang cepat untuk mengelompokkannya. Nah, Anthony ingin mengelompokkan film-filmnya dengan dua cara yang sangat mudah:
 
@@ -57,7 +57,7 @@ Setiap proses yang berjalan akan mencatat aktivitasnya ke dalam satu file bernam
 [14:23:46] Proses mengelompokkan berdasarkan Tahun: sedang mengelompokkan untuk film Kung Fu Panda
 ```
 
-**c. The Ultimate Movie Report**
+#### **c. The Ultimate Movie Report**
 
 Sebagai penggemar film yang juga suka menganalisis, Anthony ingin mengetahui statistik lebih mendalam tentang film-film yang dia koleksi. Misalnya, dia ingin tahu berapa banyak film yang dirilis **sebelum tahun 2000** dan **setelah tahun 2000**.
 
@@ -348,6 +348,7 @@ int main() {
 ```
 
 ## **Penjelasan Kode Program**
+#### **Import Library**
 ```
 #include <stdio.h>       
 #include <stdlib.h>      
@@ -369,6 +370,7 @@ int main() {
 - `<sys/stat.h>`: Menyediakan fungsi untuk operasi terkait file dan direktori seperti `mkdir()`.
 - `<time.h>`: Digunakan untuk menangani waktu, misalnya untuk mencatat waktu saat proses dijalankan dengan `time()` dan `localtime()`.
 
+#### **Struktur Data**
 ```
 typedef struct {
     char judul[100];
@@ -388,6 +390,7 @@ typedef struct {
 ```
 - `StatistikFilm`: Struktur untuk menyimpan statistik film berdasarkan negara, yaitu jumlah film yang dirilis sebelum 2000 (`sebelum2000`) dan setelah 2000 (`setelah2000`).
 
+#### **Deklarasi Variabel**
 ```
 Film daftarfilm[10000];
 int jumlahfilm = 0;
@@ -399,6 +402,7 @@ int jumlahstatistik = 0;
 - `statistik`: Array untuk menyimpan statistik berdasarkan negara.
 - `jumlahstatistik`: Menyimpan jumlah statistik negara yang tercatat.
 
+#### **Kunci Thread**
 ```
 pthread_mutex_t mutex_log = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_statistik = PTHREAD_MUTEX_INITIALIZER;
@@ -406,6 +410,7 @@ pthread_mutex_t mutex_statistik = PTHREAD_MUTEX_INITIALIZER;
 - `mutex_log`: Mutex untuk mengamankan akses ke file log, menghindari kondisi bersaing saat penulisan log.
 - `mutex_statistik`: Mutex untuk mengamankan akses ke data statistik film saat diupdate oleh beberapa thread secara bersamaan.
 
+#### **Fungsi Log Proses**
 ```
 void logproses(const char *keterangan, const char *judulfilm) {
     pthread_mutex_lock(&mutex_log);
@@ -430,6 +435,7 @@ void logproses(const char *keterangan, const char *judulfilm) {
 - `fclose`: Menutup file `log.txt` setelah selesai menulis.
 - `pthread_mutex_unlock`: Membuka kunci mutex supaya thread lain bisa menulis ke log.
 
+#### **Fungsi Untuk Menjalankan Perintah**
 ```
 void *jalaninperintah(void *arg) {
     char **perintah = (char **)arg;
@@ -461,6 +467,7 @@ void *jalaninperintah(void *arg) {
 - `perror`: Menampilkan pesan error kalau `fork` gagal.
 - `return NULL`: Mengembalikan nilai NULL karena fungsi dipakai untuk thread `(void *)`.
 
+#### **Fungsi Untuk Download, Ekstrak, dan Hapus ZIP**
 ```
 void download_zip() {
     pthread_t t1, t2, t3;
@@ -510,6 +517,7 @@ void download_zip() {
 - `pthread_join(t3, NULL)`: Menunggu thread `t3` selesai.
 - `printf("Download dan ekstrak selesai.\n")`: Menampilkan teks bahwa semua proses telah selesai.
 
+#### **Fungsi Untuk Membaca File CSV**
 ```
 void baca_csv() {
     FILE *file = fopen("netflixData.csv", "r");
@@ -553,6 +561,7 @@ void baca_csv() {
 - `jumlahfilm++`: Naikkan nilai `jumlahfilm` untuk menunjukkan bahwa satu data film berhasil disimpan.
 - `fclose(file)`: Menutup file setelah selesai dibaca.
 
+#### **Fungsi Untuk Mengelompokkan Judul Film**
 ```
 void *kelompokjudul(void *arg) {
     mkdir("judul", 0777);
@@ -604,6 +613,7 @@ void *kelompokjudul(void *arg) {
 - `logproses("Abjad", daftarfilm[i].judul)`: Fungsi ini dipanggil untuk mencatat log yang menunjukkan bahwa proses pengelompokan berdasarkan abjad untuk film tersebut telah selesai.
 - `return NULL`: Fungsi `kelompokjudul` berakhir dan mengembalikan `NULL` karena fungsi ini digunakan oleh thread yang memiliki tipe `void*` sebagai return value.
 
+#### **Fungsi Untuk Mengelompokkan Tahun Rilis Film**
 ```
 void *kelompoktahun(void *arg) {
     mkdir("tahun", 0777);
@@ -661,6 +671,8 @@ void *proses_statistik(void *arg) {
     }
     return NULL;
 }
+
+#### **Fungsi Untuk Membuat Statisktik**
 ```
 - `void *proses_statistik(void *arg)`: Fungsi untuk menghitung statistik film berdasarkan negara dan tahun. Dijalankan oleh thread.
 - `for (int i = 0; i < jumlahfilm; i++)`: Loop untuk memproses setiap data film yang ada di array `daftarfilm`.
@@ -680,6 +692,7 @@ void *proses_statistik(void *arg) {
 - `pthread_mutex_unlock(&mutex_statistik)`: Buka kembali kunci mutex agar thread lain bisa mengakses data.
 - `return NULL`: Kembalikan `NULL` karena tipe fungsi adalah `void*`.
 
+#### **Fungsi Untuk Membuat Laporan**
 ```
 void buat_laporan() {
     time_t waktu = time(NULL);
@@ -717,6 +730,7 @@ void buat_laporan() {
 - `fclose(f)`: Tutup file setelah selesai ditulis.
 - `printf("Laporan disimpan di %s\n", nama_file)`: Tampilkan lokasi (nama) file laporan ke terminal.
 
+#### **Fungsi Menu**
 ```
 void menu() {
     int pilihan;
@@ -786,13 +800,14 @@ Tampilkan daftar pilihan menu ke layar.
 - `default: { printf("Pilihan tidak valid!\n"); }`: Jika input tidak sesuai dengan pilihan yang tersedia, maka cetak bahwa pilihan tidak valid.
 - `while (pilihan != 0)`: Ulangi menu selama pengguna belum memilih 0.
 
+#### **Main Program**
 ```
 int main() {
     menu();
     return 0;1
 }
 ```
-`int main()`: Fungsi utama program.
+int main()`: Fungsi utama program.
 `menu()`: Panggil fungsi `menu()`.
 `return 0`: Selesai menjalankan program.
 
@@ -804,46 +819,46 @@ int main() {
 5. Untuk pilihan 0, keluar dari program.
 
 ## **Bukti Hasil Program**
-**Tampilan Menu**
+#### **Tampilan Menu**
 ![Image](https://github.com/user-attachments/assets/24631078-8511-4450-bcbf-f03bb2e694c0)
 
-**Hasil Pilihan 1**
+#### **Hasil Pilihan 1**
 ![Image](https://github.com/user-attachments/assets/bf597165-aa7f-4941-b422-58fb04c78af2)
 ![Image](https://github.com/user-attachments/assets/88de5fc4-77f9-45dc-b5e7-44df45f27691)
 
-**Hasil Pilihan 2**
+#### **Hasil Pilihan 2**
 ![Image](https://github.com/user-attachments/assets/25ee3aa9-80b9-408b-be97-6591a00a417c)
 ![Image](https://github.com/user-attachments/assets/0ce44a2e-cc92-46c4-8f86-01c193ae508f)
 
-**File Dalam Folder Judul**
+#### **File Dalam Folder Judul**
 ![Image](https://github.com/user-attachments/assets/21bd91ea-3e36-4329-8549-c330231b52af)
 
 **Isi File `1.txt`**
 ![Image](https://github.com/user-attachments/assets/06226186-69c2-4ddf-8ac7-c387880cab1d)
 
-**Isi File `#.txt`**
+#### **Isi File `#.txt`**
 ![Image](https://github.com/user-attachments/assets/7caa2886-38f9-43cb-b890-cbddc7b0e964)
 
-**File Dalam Folder Tahun**
+#### **File Dalam Folder Tahun**
 ![Image](https://github.com/user-attachments/assets/856fad89-fed6-4e27-8fd5-6b6da0bb8cd7)
 
 **Isi File `1942.txt`**
 ![Image](https://github.com/user-attachments/assets/0a58fad8-110f-477b-b935-35a2d5b23cfb)
 
-**Isi File `2021.txt`**
+#### **Isi File `2021.txt`**
 ![Image](https://github.com/user-attachments/assets/6cab5a74-9c3b-4156-aebb-d6eb2d5cd625)
 
-**Isi File `log.txt`**
+#### **Isi File `log.txt`**
 ![Image](https://github.com/user-attachments/assets/596a3002-75f0-41f8-91c8-73590f090096)
 
-**Hasil Pilihan 3**
+#### **Hasil Pilihan 3**
 ![Image](https://github.com/user-attachments/assets/476b1e95-1aad-445c-8e4a-4fd8fa4e37f6)
 ![Image](https://github.com/user-attachments/assets/0681a0ce-43cf-40e0-b982-7c9a8c92a7d3)
 
-**Isi File `report_30042025.txt`
+#### **Isi File `report_30042025.txt`
 ![Image](https://github.com/user-attachments/assets/29b73dc4-3ab4-449e-9ded-e58581a8d889)
 
-**Hasil Pilihan 0**
+#### **Hasil Pilihan 0**
 ![Image](https://github.com/user-attachments/assets/783c60cd-8bff-4f18-88f1-049ae23d575d)
 
 ## **Kendala**
