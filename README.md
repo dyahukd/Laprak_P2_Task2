@@ -833,7 +833,7 @@ int main()`: Fungsi utama program.
 #### **File Dalam Folder Judul**
 ![Image](https://github.com/user-attachments/assets/21bd91ea-3e36-4329-8549-c330231b52af)
 
-**Isi File `1.txt`**
+#### **Isi File `1.txt`**
 ![Image](https://github.com/user-attachments/assets/06226186-69c2-4ddf-8ac7-c387880cab1d)
 
 #### **Isi File `#.txt`**
@@ -842,7 +842,7 @@ int main()`: Fungsi utama program.
 #### **File Dalam Folder Tahun**
 ![Image](https://github.com/user-attachments/assets/856fad89-fed6-4e27-8fd5-6b6da0bb8cd7)
 
-**Isi File `1942.txt`**
+#### **Isi File `1942.txt`**
 ![Image](https://github.com/user-attachments/assets/0a58fad8-110f-477b-b935-35a2d5b23cfb)
 
 #### **Isi File `2021.txt`**
