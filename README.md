@@ -7,7 +7,7 @@ Anthony sedang asyik menonton film favoritnya dari Netflix, namun seiring berjal
 
 Berikut adalah serangkaian tugas yang Anthony ingin capai untuk membuat pengalaman menonton filmnya jadi lebih menyenangkan:
 
-### **a. One Click and Done!**
+**a. One Click and Done!**
 
 Pernahkah kamu merasa malas untuk mengelola file ZIP yang penuh dengan data film? Anthony merasa hal yang sama, jadi dia ingin semuanya serba instan dengan hanya satu perintah. Dengan satu perintah saja, Anthony bisa:
 
@@ -17,7 +17,7 @@ Pernahkah kamu merasa malas untuk mengelola file ZIP yang penuh dengan data film
 
 Buatlah skrip yang akan mengotomatiskan proses ini sehingga Anthony hanya perlu menjalankan satu perintah untuk mengunduh, mengekstrak, dan menghapus file ZIP.
 
-### **b. Sorting Like a Pro**
+**b. Sorting Like a Pro**
 
 Koleksi film Anthony semakin banyak dan dia mulai bingung mencari cara yang cepat untuk mengelompokkannya. Nah, Anthony ingin mengelompokkan film-filmnya dengan dua cara yang sangat mudah:
 
@@ -57,7 +57,7 @@ Setiap proses yang berjalan akan mencatat aktivitasnya ke dalam satu file bernam
 [14:23:46] Proses mengelompokkan berdasarkan Tahun: sedang mengelompokkan untuk film Kung Fu Panda
 ```
 
-### **c. The Ultimate Movie Report**
+**c. The Ultimate Movie Report**
 
 Sebagai penggemar film yang juga suka menganalisis, Anthony ingin mengetahui statistik lebih mendalam tentang film-film yang dia koleksi. Misalnya, dia ingin tahu berapa banyak film yang dirilis **sebelum tahun 2000** dan **setelah tahun 2000**.
 
@@ -804,38 +804,38 @@ int main() {
 5. Untuk pilihan 0, keluar dari program.
 
 ## **Bukti Hasil Program**
-#### **Tampilan Menu**
+**Tampilan Menu**
 ![Image](https://github.com/user-attachments/assets/24631078-8511-4450-bcbf-f03bb2e694c0)
-#### **Hasil Pilihan 1**
+**Hasil Pilihan 1**
 ![Image](https://github.com/user-attachments/assets/bf597165-aa7f-4941-b422-58fb04c78af2)
 ![Image](https://github.com/user-attachments/assets/88de5fc4-77f9-45dc-b5e7-44df45f27691)
-#### **Hasil Pilihan 2**
+**Hasil Pilihan 2**
 ![Image](https://github.com/user-attachments/assets/25ee3aa9-80b9-408b-be97-6591a00a417c)
 ![Image](https://github.com/user-attachments/assets/0ce44a2e-cc92-46c4-8f86-01c193ae508f)
-#### **File Dalam Folder Judul**
+**File Dalam Folder Judul**
 ![Image](https://github.com/user-attachments/assets/21bd91ea-3e36-4329-8549-c330231b52af)
-#### **Isi File `1.txt`**
+**Isi File `1.txt`**
 ![Image](https://github.com/user-attachments/assets/06226186-69c2-4ddf-8ac7-c387880cab1d)
-#### **Isi File `#.txt`**
+**Isi File `#.txt`**
 ![Image](https://github.com/user-attachments/assets/7caa2886-38f9-43cb-b890-cbddc7b0e964)
-#### **File Dalam Folder Tahun**
+**File Dalam Folder Tahun**
 ![Image](https://github.com/user-attachments/assets/856fad89-fed6-4e27-8fd5-6b6da0bb8cd7)
-#### **Isi File `1942.txt`**
+**Isi File `1942.txt`**
 ![Image](https://github.com/user-attachments/assets/0a58fad8-110f-477b-b935-35a2d5b23cfb)
-#### **Isi File `2021.txt`**
+**Isi File `2021.txt`**
 ![Image](https://github.com/user-attachments/assets/6cab5a74-9c3b-4156-aebb-d6eb2d5cd625)
-#### **Isi File `log.txt`**
+**Isi File `log.txt`**
 ![Image](https://github.com/user-attachments/assets/596a3002-75f0-41f8-91c8-73590f090096)
-#### **Hasil Pilihan 3**
+**Hasil Pilihan 3**
 ![Image](https://github.com/user-attachments/assets/476b1e95-1aad-445c-8e4a-4fd8fa4e37f6)
 ![Image](https://github.com/user-attachments/assets/0681a0ce-43cf-40e0-b982-7c9a8c92a7d3)
-#### **Isi File `report_30042025.txt`
+**Isi File `report_30042025.txt`
 ![Image](https://github.com/user-attachments/assets/29b73dc4-3ab4-449e-9ded-e58581a8d889)
-#### **Hasil Pilihan 0**
+**Hasil Pilihan 0**
 ![Image](https://github.com/user-attachments/assets/783c60cd-8bff-4f18-88f1-049ae23d575d)
 
 ## **Kendala**
-- Pada pilihan 2, isi file `#.txt` tidak lengkap, ada beberapa yang belum masuk ke file tersebut. Sudah dicoba perbaiki, namun belum menemukan jawaban yang tepat.
+- Pada pilihan 2, isi file `#.txt` tidak lengkap, ada beberapa yang belum masuk ke file tersebut seperti judul film yg dimulai dengan tanda petik ("). Sudah dicoba perbaiki, namun belum menemukan jawaban yang tepat.
 - File netflixData.csv ketika dibuka di MsExcel, pada baris 3962, judul tidak diawali dengan tanda petik ("), namun, di jika dibuka di Linux, judul diawali dengan tanda petik (").
 
 
